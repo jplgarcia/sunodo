@@ -12,7 +12,7 @@
         "storybook": "storybook dev -p 6006"
     },
     "dependencies": {
-        "@cartesi/rollups": "1.4.3",
+        "@cartesi/rollups": "2.0.0-rc.10",
         "@mantine/code-highlight": "^7.13.3",
         "@mantine/core": "^7.13.3",
         "@mantine/form": "^7.13.3",
@@ -31,7 +31,7 @@
         "wagmi": "^2.12.24"
     },
     "devDependencies": {
-        "@cartesi/devnet": "^1.8.0",
+        "@cartesi/devnet": "2.0.0-alpha.0",
         "@next/bundle-analyzer": "^14.2.15",
         "@next/eslint-plugin-next": "^14.2.15",
         "@storybook/addon-essentials": "^8.0.4",
