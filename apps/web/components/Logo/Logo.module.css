@@ -17,3 +17,24 @@
         fill: var(--mantine-color-white);
     }
 }
+
+.cls-1 {
+    fill: #00f6ff;
+}
+
+.logo {
+    height: 100%;
+}
+
+.overdiv {
+    margin: auto;
+    display: flex;
+
+    @mixin light {
+        fill: var(--mantine-color-black);
+    }
+
+    @mixin dark {
+        fill: var(--mantine-color-white);
+    }
+}

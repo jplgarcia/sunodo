@@ -1,11 +1,7 @@
 "use client";
 
-import { Burger, Drawer, Group, Stack } from "@mantine/core";
+import { Group } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import cx from "clsx";
-import Image from "next/image";
-import { NavigationMenu } from "../NavigationMenu/NavigationMenu";
-import classes from "./Navigation.module.css";
 type Props = {
     isDark?: boolean;
 };
@@ -16,9 +12,9 @@ export function Navigation({ isDark }: Props) {
     return (
         <>
             <Group wrap="nowrap" visibleFrom="sm" gap="0" align="center">
-                <NavigationMenu isDark={isDark} />
+                {/* <NavigationMenu isDark={isDark} /> */}
             </Group>
-            <Burger
+            {/* <Burger
                 opened={opened}
                 hiddenFrom="sm"
                 onClick={open}
@@ -37,7 +33,7 @@ export function Navigation({ isDark }: Props) {
                     </Group>
                     <NavigationMenu />
                 </Stack>
-            </Drawer>
+            </Drawer> */}
         </>
     );
 }

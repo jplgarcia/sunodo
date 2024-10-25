@@ -15,21 +15,17 @@ import { IconBrandGithub, IconBrandX } from "@tabler/icons-react";
 export function Footer() {
     const items = [
         {
-            label: "Meet Sunodo",
-            href: "/#meet-sunodo",
+            label: "Cartesi.io",
+            href: "https://cartesi.io/",
         },
         {
-            label: "Docs",
-            href: "https://docs.sunodo.io/",
+            label: "Cartesi Docs",
+            href: "https://docs.cartesi.io/",
             external: true,
         },
         {
-            label: "Deploy",
-            href: "/deploy",
-        },
-        {
-            label: "Cartesi.io",
-            href: "https://cartesi.io",
+            label: "ETH Global Guide",
+            href: "https://github.com/Mugen-Builders/cartesi-avail-tutorial",
             external: true,
         },
     ];
@@ -37,7 +33,7 @@ export function Footer() {
     const social = [
         {
             label: "GitHub",
-            href: "https://github.com/sunodo",
+            href: "https://github.com/cartesi",
             external: true,
             icon: <IconBrandGithub />,
         },
@@ -48,7 +44,7 @@ export function Footer() {
     },*/
         {
             label: "X",
-            href: "https://twitter.com/SunodoProject",
+            href: "https://twitter.com/cartesiproject",
             external: true,
             icon: <IconBrandX />,
         },

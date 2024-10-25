@@ -22,8 +22,6 @@ import {
     useSimulateSelfHostedApplicationFactoryDeployContracts,
     useWriteSelfHostedApplicationFactoryDeployContracts,
 } from "../../../src/contracts";
-import MachineInstructions from "../MachineInstructions";
-import NodeConfig from "./NodeConfig";
 import WalletInstructions from "./WalletInstructions";
 
 type DeploySelfHostedProps = {
@@ -37,7 +35,7 @@ const DeploySelfHosted: FC<DeploySelfHostedProps> = (props) => {
     const form = useForm({
         initialValues: {
             authorityOwner: props.authorityOwner,
-            templateHash: props.templateHash,
+            templateHash: "0x41931e2c19d139d4d34688b6806c8cc14219df8720f7acedf280a5b453e6670d",
             salt: generatePrivateKey(),
         },
         validate: {
@@ -97,26 +95,7 @@ const DeploySelfHosted: FC<DeploySelfHostedProps> = (props) => {
 
     return (
         <Timeline>
-            <Timeline.Item title="Cartesi Machine Hash" pl={"lg"} pb={"lg"}>
-                <Stack gap="xl" pt="xl">
-                    <Stack gap={0}>
-                        <Group gap={2} pb={"xs"}>
-                            <Title order={5}>
-                                Hash of the genesis Cartesi machine
-                            </Title>
-                            <Text c="red">*</Text>
-                        </Group>
-
-                        <TextInput
-                            {...form.getInputProps("templateHash")}
-                            required
-                            disabled={deployed}
-                            size="md"
-                        />
-                    </Stack>
-                    {!form.values.templateHash && <MachineInstructions />}
-                </Stack>
-            </Timeline.Item>
+            
             <Timeline.Item title="Base Layer" pb="lg">
                 <Stack gap="xs" pt="xl">
                     <Group gap={2}>
@@ -144,7 +123,7 @@ const DeploySelfHosted: FC<DeploySelfHostedProps> = (props) => {
                     {authorityOwner === zeroAddress && <WalletInstructions />}
                 </Stack>
             </Timeline.Item>
-            <Timeline.Item title="Deploy" pb="lg">
+            <Timeline.Item title="Register the address" pb="lg">
                 <Stack gap="md" pt="xl">
                     {simulate.isError && (
                         <ScrollArea>
@@ -186,7 +165,7 @@ const DeploySelfHosted: FC<DeploySelfHostedProps> = (props) => {
                                 execute.writeContract(simulate.data!.request)
                             }
                         >
-                            Deploy
+                            Register
                         </Button>
                     </Group>
                     {deployed && (
@@ -197,18 +176,9 @@ const DeploySelfHosted: FC<DeploySelfHostedProps> = (props) => {
                                 title="Deploy Successful"
                                 icon={<IconInfoCircle />}
                             >
-                                Application deployed to {applicationAddress}.
-                                Copy the configuration below to start the node
-                                of your application by following the
-                                instructions at the Sunodo documentation.
+                                Application registered to {applicationAddress}.
+                                Copy the dApp address to use on your transactions.
                             </Alert>
-                            <NodeConfig
-                                templateHash={templateHash}
-                                applicationAddress={applicationAddress}
-                                authorityAddress={authorityAddress}
-                                historyAddress={historyAddress}
-                                chainId={chainId}
-                            />
                         </Stack>
                     )}
                 </Stack>

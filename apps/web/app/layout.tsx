@@ -13,9 +13,9 @@ import { theme, variablesResolver } from "../theme/theme";
 import classes from "./layout.module.css";
 
 export const metadata = {
-    title: "Sunodo",
+    title: "dApp Register",
     description:
-        "The easiest way to build, deploy and manage Cartesi Rollups DApps",
+        "Claim your dApp address here to start building",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

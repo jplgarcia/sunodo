@@ -10,15 +10,8 @@ import {
 import "@rainbow-me/rainbowkit/styles.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
-    arbitrum,
-    arbitrumSepolia,
-    base,
-    baseSepolia,
     foundry,
-    mainnet,
-    optimism,
-    optimismSepolia,
-    sepolia,
+    sepolia
 } from "viem/chains";
 import { WagmiProvider } from "wagmi";
 
@@ -31,25 +24,11 @@ const config = getDefaultConfig({
     chains:
         process.env.NODE_ENV === "development"
             ? [
-                  mainnet,
                   sepolia,
-                  arbitrum,
-                  arbitrumSepolia,
-                  optimism,
-                  optimismSepolia,
-                  base,
-                  baseSepolia,
                   foundry,
               ]
             : [
-                  mainnet,
                   sepolia,
-                  arbitrum,
-                  arbitrumSepolia,
-                  optimism,
-                  optimismSepolia,
-                  base,
-                  baseSepolia,
               ],
     ssr: true,
 });

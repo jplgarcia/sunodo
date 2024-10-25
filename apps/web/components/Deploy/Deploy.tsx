@@ -1,9 +1,8 @@
 import { Stack, Title } from "@mantine/core";
 import { FC, useState } from "react";
 
-import Hosting, { HostingMethod } from "./Hosting";
+import { HostingMethod } from "./Hosting";
 import DeploySelfHosted from "./SelfHosted/DeploySelfHosted";
-import DeployThirdParty from "./ThirdParty/DeployThirdParty";
 
 type DeployProps = {
     cid?: string;
@@ -24,16 +23,7 @@ const Deploy: FC<DeployProps> = (props) => {
     return (
         <Stack maw={960} gap="xl" pb="xl">
             <Title order={3}>Deploy</Title>
-            <Hosting method={method} onChange={setMethod} />
-            {method === "self-hosted" && (
-                <DeploySelfHosted templateHash={props.templateHash} />
-            )}
-            {method === "third-party" && (
-                <DeployThirdParty
-                    cid={props.cid ?? ""}
-                    provider={props.provider ?? ""}
-                />
-            )}
+            <DeploySelfHosted templateHash={props.templateHash} />
         </Stack>
     );
 };

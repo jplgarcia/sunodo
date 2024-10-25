@@ -1,27 +1,42 @@
-import { Metadata } from "next";
+"use client";
+import "@mantine/code-highlight/styles.css";
 
-import { CtaGetStarted } from "../components/Homepage/CtaGetStarted";
-import { Discover } from "../components/Homepage/Discover/Discover";
-import { Features } from "../components/Homepage/Features";
-import { Gaming } from "../components/Homepage/Gaming";
-import { Hero } from "../components/Homepage/Hero/Hero";
-import { Welcome } from "../components/Homepage/Welcome";
+import { Container } from "@mantine/core";
+import { useSearchParams } from "next/navigation";
+import { FC, Suspense } from "react";
 
-export const metadata: Metadata = {
-    title: "Sunodo - Deploy verifiable Linux VMs with a click of a button",
-    description:
-        "Build and test fully managed Cartesi Rollups on a modular stack.",
+import DeployComponent from "../components/Deploy/Deploy";
+import { Section } from "../components/Section/Section";
+
+const Deploy: FC = () => {
+    const searchParams = useSearchParams();
+
+    // default location and provider can come from URL
+    const locationParam = searchParams.get("cid");
+    const providerParam = searchParams.get("provider");
+
+    // templateHash comes in case of self-hosted
+    const templateHashParam = searchParams.get("templateHash");
+
+    return (
+        <DeployComponent
+            cid={locationParam ?? ""}
+            provider={providerParam ?? ""}
+            templateHash={templateHashParam ?? ""}
+        />
+    );
 };
 
-export default function HomePage() {
+const DeployPage: FC = () => {
     return (
-        <>
-            <Hero />
-            <Welcome />
-            <Features />
-            <Discover />
-            <Gaming />
-            <CtaGetStarted />
-        </>
+        <Section size="sm">
+            <Container>
+                <Suspense>
+                    <Deploy />
+                </Suspense>
+            </Container>
+        </Section>
     );
-}
+};
+
+export default DeployPage;
